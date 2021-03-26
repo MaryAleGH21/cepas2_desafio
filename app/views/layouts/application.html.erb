@@ -13,6 +13,20 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= yield %>
+   <section>
+   <%= link_to 'wine', wines_path %>
+   <br>
+   <%= link_to 'wine_strains', wine_strains_path %>
+   <br>
+   <%= link_to 'strains', strains_path %>
+  <br>
+  <% if user_signed_in? %>
+    <%= link_to 'logout', destroy_user_session_path, method: :delete %> 
+  <% else %>
+    <%= link_to 'login', new_user_session_path %> 
+  <% end %>
+  </section>
+
+  <%= yield %>
   </body>
 </html>
